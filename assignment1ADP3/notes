@@ -1,0 +1,54 @@
+-The framework we gonna used Spring to make think look easier is https://spring.io/
+-Download mySQl
+-You can also install postman
+-Know about http request -- POST, GET , PUT , PATCH , AND DELETE  these method correspond to
+POST- Setting information
+Get- getting information
+CRUD operation ( create , Read , Update ,Delete)
+- know about http error code
+
+- Before working with spring boot you have to play around with spring.
+- add dependencies in the pom file- spring boot documentation
+- create a java class on the cput.za.ac root package and paste this code import org.springframework.boot.SpringApplication;     import org.springframework.boot.autoconfigure.SpringBootApplication;
+ -     import org.springframework.boot.autoconfigure.SpringBootApplication;
+ write code: create an application check the code in the myApplication.java.Alt+enter to get rid of the error
+ -To run your application on google or Postman localhost:8080/url
+ - The way to create an object is to intantiate the object
+
+ - Because we are working on the web service @Autowired allow us to intantiate an object
+- We used @Entity after initialized a class to tell the compiler about all the different component of the application. Placing @Entity is telling the compiler that the class is an entity
+
+-- --------- Controller -----------
+-create a new package called controller
+- add @RestController
+@RequestMapping("/nationality")  // set the entry point
+-@Autowired   // instatiate the object
+private EmployeeService employeeService;
+@PostMapping("/create")
+Public Employee create(RequestBody Employee employee){
+// NB no need to generate a employeeID
+Employee newEmployee = employeeFactory.createEmployee("Kruben","Naidoo");
+return employeeSer vice.create(newEmployee);
+}
+// after done will create then do the getMapping (read)
+@GetMapping("/read/{id}")
+public Employee read(@PathVariable String id)
+return employeeService.read(id)
+
+// after that is Update which going to be a @PostMapping
+@PostMapping("/update")
+public Employee update(@RequestBody Employee employee){
+return employeeService.update(employee);
+}
+
+// after that is Delete
+@DeleteMapping("delete/{id}")
+public boolean delete(@PathVariable String id){
+return employeeService.delete(id);
+}
+@GetMapping("/getall") /// NB is a set
+public Set<Nationality> getall(){
+return employeeService.getAll(); // return a set of employee object
+}
+
+

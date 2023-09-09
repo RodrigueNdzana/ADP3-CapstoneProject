@@ -1,11 +1,11 @@
-package cput.za.ac.repository;
+/*package cput.za.ac.repository;
 
 /*StudentRepositoryTest .java
  Author: Bavuyise Mpila(216061067)
  Date 07 April 2023
 */
 
-import cput.za.ac.domain.Student;
+/*import cput.za.ac.domain.Student;
 import cput.za.ac.factory.StudentFactory;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -53,4 +53,4 @@ class StudentRepositoryTest {
         System.out.println("Show all:");
         System.out.println(repository.getAll());
     }
-}
+}*/

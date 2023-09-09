@@ -1,4 +1,4 @@
-package cput.za.ac.repository;
+/*package cput.za.ac.repository;
 
 /*UserRepository .java
  Author: Bavuyise Mpila(216061067)
@@ -7,7 +7,7 @@ package cput.za.ac.repository;
 
 
 
-import cput.za.ac.domain.User;
+  /*import cput.za.ac.domain.User;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -40,13 +40,13 @@ public class UserRepository implements IUserRepository{
 
     @Override
     public User read(String userId) {
-     /* linear or sequential search for (User u : userDB) {
+    linear or sequential search for (User u : userDB) {
           if (u.getUserId().equals(userId))
               return u;
      }
       return null;*/
         //lambda expressions
-        User user = userDB.stream()
+       /* User user = userDB.stream()
                 .filter (u->u.getUserId().equals(userId))
                 .findAny()
                 .orElse(null);
@@ -80,5 +80,5 @@ public class UserRepository implements IUserRepository{
 
         return userDB;
     }
-}
+}*/
 

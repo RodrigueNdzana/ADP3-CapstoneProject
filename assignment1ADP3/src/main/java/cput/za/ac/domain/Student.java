@@ -1,11 +1,15 @@
 package cput.za.ac.domain;
 
+import jakarta.persistence.Entity;
+import org.springframework.data.annotation.Id;
+
 /*Student.java
  Entity for the Student
  Author: Bavuyise Mpila(216061067)
  Date 07 April 2023
-*/
+*/@Entity
 public class Student {
+     @Id
     private String studentNum;
     private String name;
     private String password;

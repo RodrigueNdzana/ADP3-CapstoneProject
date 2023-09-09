@@ -10,7 +10,7 @@ import cput.za.ac.domain.Student;
 
 import java.util.HashSet;
 import java.util.Set;
-public class StudentRepository implements IStudentRepository{
+/*public class StudentRepository implements IStudentRepository{
     private static StudentRepository repository = null;
     private Set<Student> studentDB = null;
     private StudentRepository(){
@@ -40,7 +40,7 @@ public class StudentRepository implements IStudentRepository{
      }
       return null;*/
         //lambda expressions
-        Student student = studentDB.stream()
+     /*   Student student = studentDB.stream()
                 .filter (s->s.getStudentNum().equals(studentNum))
                 .findAny()
                 .orElse(null);
@@ -74,6 +74,6 @@ public class StudentRepository implements IStudentRepository{
 
         return studentDB;
     }
-}
+}*/
 
 

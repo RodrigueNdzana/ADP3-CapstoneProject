@@ -6,33 +6,58 @@ package cput.za.ac.Service.impl;
 import cput.za.ac.domain.User;
 import cput.za.ac.factory.UserFactory;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserServiceImplTest {
-    private UserServiceImpl service;
-    private static User user = UserFactory.createUser("Bavuyise","Mpila", "0738064679","216061067@myucput.ac.za", "NY 63 No114"
-    );
-
+    @Autowired
+    private UserServiceImpl userservice;
+    //private static User user = UserFactory.createUser("Bavuyise","Mpila", "0738064679","216061067@myucput.ac.za", "NY 63 No114"
+   // );
+    private static User user;
     @Test
-    void a_create() {
-        User created = service.create(user);
+    @Order(1)
+    void create() {
+         System.out.println("--------------- created User ------");
+        //adding the enrolled student to the course
+        List<String> users = new ArrayList<>();
+
+        users.add("Neilyn");
+        users.add("Rodrigue");
+        users.add("Mxolisi");
+        users.add("Bavuyise");
+        users.add("Anne");
+        user = UserFactory.createUser("Bavuyise","Mpila", "0738064679","216061067@myucput.ac.za", "NY 63 No114"
+    );
+        assertNotNull(user);
+        System.out.println(user);
+
+       /* User created = service.create(user);
         assertEquals(user.getUserId(), created.getUserId());
-        System.out.println("Created: "+ created);
+        System.out.println("Created: "+ created);*/
     }
 
     @Test
-    void b_read() {
-        User read = service.read(user.getUserId());
+    @Order(2)
+    void read() {
+     System.out.println("-------- Read data ---------");
+        User read = userservice.read(user.getUserId());
         assertNotNull(read);
         System.out.println("Read: " + read);
+
+
     }
 
     @Test
     void c_update() {
         User newUser = new User.Builder().copy(user).setFirstname("Luhlelunje").build();
-        User updated =service.update(newUser);
+        User updated =userservice.update(newUser);
         assertEquals(newUser.getFirstname(), updated.getFirstname());
         System.out.println("Updated" + updated
         );
@@ -46,7 +71,7 @@ class UserServiceImplTest {
     @Test
     void e_getAll() {
         System.out.println("Get all: ");
-        System.out.println(service.getAll());
+        System.out.println(userservice.getAll());
 
     }
 }

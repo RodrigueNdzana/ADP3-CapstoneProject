@@ -16,23 +16,23 @@ import java.util.List;
 @RequestMapping("/course")
 public class CourseController {
         @Autowired
-        private ICourseService coursesService;
+        public ICourseService coursesService;
 
         @PostMapping("/create")
         public Course create (@RequestBody Course course){
             return coursesService.create(course);
         }
-        @GetMapping("/read/{id}")
-        public Course read(@PathVariable String id) {
-            return coursesService.read(id);
+        @GetMapping("/read/{course_code}")
+        public Course read(@PathVariable String course_code) {
+            return coursesService.read(course_code);
         }
         @PostMapping("/update")
         public Course update(@RequestBody Course course) {
             return coursesService.update(course);
         }
-        @DeleteMapping("delete/{id}")
-        public boolean delete(@PathVariable String id){
-            return coursesService.delete(id);
+        @DeleteMapping("delete/{course_code}")
+        public boolean delete(@PathVariable String course_code){
+            return coursesService.delete(course_code);
         }
         @GetMapping("/getall") /// NB is a set
         public List<Course> getall(){

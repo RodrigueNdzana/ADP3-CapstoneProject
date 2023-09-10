@@ -40,13 +40,9 @@ public class UserRepository implements IUserRepository{
 
     @Override
     public User read(String userId) {
-     /* linear or sequential search for (User u : userDB) {
-          if (u.getUserId().equals(userId))
-              return u;
-     }
-      return null;*/
+
         //lambda expressions
-        User user = userDB.stream()
+       User user = userDB.stream()
                 .filter (u->u.getUserId().equals(userId))
                 .findAny()
                 .orElse(null);

@@ -1,15 +1,32 @@
 package cput.za.ac.domain;
 
+import jakarta.persistence.*;
+
 /*Student.java
  Entity for the Student
  Author: Bavuyise Mpila(216061067)
  Date 07 April 2023
 */
+@Entity
 public class Student {
+    @Column(name = "subjectnumber")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String studentNum;
-    private String name;
+    @Column(name="studentName", length = 255)
+     private String name;
+    @Column(name="studentPassword", length = 255)
     private String password;
+    @Column(name="StudentEmail", length = 255)
     private String email;
+
+    public Student(String studentNum, String name, String password, String email) {
+        this.studentNum = studentNum;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+    }
+
     private Student(Student.Builder builder){
         this.studentNum = builder.studentNum;
         this.name = builder.name;

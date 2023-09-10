@@ -7,14 +7,20 @@ package cput.za.ac.domain;
 
 import java.util.Objects;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 @Entity
 public class Educator {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="educator id", length = 255)
     private String educator_Id;
+    @Column(name="educator name", length = 255)
     private String edu_Name;
+    @Column(name="educator address", length = 255)
     private String edu_Address;
+
+    @Column(name="educator gender", length = 255)
     private String edu_Gender;
 
    public Educator(){}

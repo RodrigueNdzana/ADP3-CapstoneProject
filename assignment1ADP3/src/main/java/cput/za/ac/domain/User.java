@@ -1,17 +1,42 @@
 package cput.za.ac.domain;
 
+import jakarta.persistence.*;
+
 /*User.java
  Entity for the User
  Author: Bavuyise Mpila(216061067)
  Date 07 April 2023
 */
+@Entity
+@Table(name = "User")
 public class User {
+    @Column(name = "user_id",length = 255)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String userId;
+    @Column(name = "first_name",length = 255)
     private String firstname;
+    @Column(name = "last_name",length = 255)
     private String lastname;
+    @Column(name = "phone_Number",length = 255)
     private String phoneNum;
+    @Column(name = "Email",length = 255)
     private String email;
+    @Column(name = "address",length = 255)
     private String address;
+
+    public User() {
+
+    }
+
+    public User(String firstname, String lastname, String phoneNum, String email, String address) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phoneNum = phoneNum;
+        this.email = email;
+        this.address = address;
+    }
+
     private User(Builder builder){
         this.userId = builder.userId;
         this.firstname = builder.firstname;

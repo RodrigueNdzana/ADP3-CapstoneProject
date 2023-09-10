@@ -3,6 +3,7 @@ package cput.za.ac.repository;
      Repository test for the Educator
      Author:Rodrigue Ndzana Ngonga Beaubane (219384096)
      Date: 07 April 2023
+     */
 import cput.za.ac.repository.EducatorRepository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ import cput.za.ac.domain.Educator;
 import cput.za.ac.factory.EducatorFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class EducatorRepositoryTest {
     private static EducatorRepository repository = EducatorRepository.getRepository();
@@ -62,4 +63,4 @@ class EducatorRepositoryTest {
     }
 
 }
-*/
+

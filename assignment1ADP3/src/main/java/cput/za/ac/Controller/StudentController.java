@@ -2,41 +2,60 @@ package cput.za.ac.Controller;
 /*StudentController.Java
  Author: Bavuyise Mpila(216061067)
  Date September 2023
-*/
 
+ */
 import cput.za.ac.Service.impl.StudentServiceImpl;
 
 import cput.za.ac.domain.Student;
+import cput.za.ac.repository.IStudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-@RestController
+@Controller
+@CrossOrigin(origins = "http://localhost:3000") // allowing cross resource sharing on the server
 @RequestMapping("/student")
 public class StudentController {
     @Autowired
-    private StudentServiceImpl studentService;
-    @PostMapping("/create")
-    public Student create (@RequestBody Student student){
+    private IStudentRepository studentService;
 
-        return studentService.create(student);
+    // check if api woking
+    @RequestMapping(value="check",method = RequestMethod.GET)
+    @ResponseBody
+    public String check(){
+        return "api is working";
     }
-    @GetMapping("/read/{id}")
-    public Student read(@PathVariable String id) {
-        return studentService.read(id);
+    @RequestMapping(value="/addingStudent",method = RequestMethod.POST)
+    @ResponseBody
+    public Student addStudent(Student student) {
+        return studentService.save(student);
     }
-    @PostMapping("/update")
-    public Student update(@RequestBody Student student) {
-        return studentService.update(student);
+
+    @RequestMapping(value="/findingStudent",method = RequestMethod.GET)
+    @ResponseBody
+    public Student findByStudentNumber(@RequestParam("studentNum") String studentNum ) {
+        return studentService.findByStudentNumber(studentNum);
     }
-    @DeleteMapping("delete/{id}")
-    public boolean delete(@PathVariable String id){
-        return studentService.delete(id);
+    @RequestMapping(value="/updatingStudent",method = RequestMethod.GET)
+    @ResponseBody
+    public Student updateStudent(@RequestBody Student student) {
+        return studentService.save(student);
     }
-    @GetMapping("/getall") /// NB is a set
-    public List<Student> getall(){
-        return studentService.getAll(); // return a set of user object
+
+    @RequestMapping(value="/deletingStudent",method = RequestMethod.GET)
+    @ResponseBody
+    public String deleteStudent(@RequestParam("studentNum") String studentNum) {
+        studentService.deleteById(studentNum);
+        return studentNum;
     }
+
+//    @GetMapping("/getall") /// NB is a set
+//    public List<Student> getall() {
+//        //return studentService.getAll(); // return a set of user object
+//    }
+
+
 }
+
 

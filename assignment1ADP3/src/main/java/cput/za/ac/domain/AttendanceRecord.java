@@ -1,20 +1,37 @@
 package cput.za.ac.domain;
+
+import jakarta.persistence.*;
+
 /*   AttendanceRecord.java
      Domain for Attendance Record
      Author:Neilyn Parnell (218132425)
      Date: 07 April 2022
 */
+@Entity
 public class AttendanceRecord {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="Attendance Id", length = 255)
     private int AttendanceID;
+    @Column(name="student id", length = 255)
     private int StudentID;
+    @Column(name="attendance status", length = 255)
     private String AttendanceStatus;
 
+    @Column(name="date", length = 255)
     private String Date;
+    @Column(name="department", length = 255)
     private String Department;
+    @Column(name="class", length = 255)
     private String Class;
+    @Column(name="teaher id", length = 255)
     private String TeacherID;
+    @Column(name="subject id", length = 255)
     private String SubjectID;
+
+    public AttendanceRecord() {
+    }
 
     private AttendanceRecord(AttendanceRecord.Builder builder){
         this.AttendanceID = builder.AttendanceID;

@@ -1,19 +1,29 @@
 package cput.za.ac.domain;
+
+import jakarta.persistence.*;
+
 /*   Administrator.java
      Domain for Administrator
      Author:Neilyn Parnell (218132425)
      Date: 07 April 2022
 */
-public class Administartor {
-  private String ID;
-
-  private String Name;
-
+@Entity
+public class Administrator {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id", length = 255)
+    private String ID;
+    @Column(name="name", length = 255)
+    private String Name;
+    @Column(name="password", length = 255)
   private String Password;
-
+    @Column(name="email", length = 255)
   private String Email;
 
-  private Administartor(Administartor.Builder builder){
+    public Administrator() {
+    }
+
+    private Administrator(Administrator.Builder builder){
       this.ID = builder.ID;
       this.Name = builder.Name;
       this.Password = builder.Password;

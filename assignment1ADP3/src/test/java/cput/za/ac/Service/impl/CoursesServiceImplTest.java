@@ -51,8 +51,9 @@ class CoursesServiceImplTest {
         System.out.println();
     }
 
-    @Order(3)
+
     @Test
+    @Order(3)
     void update() {
 
     }

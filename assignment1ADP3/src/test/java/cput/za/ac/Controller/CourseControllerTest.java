@@ -29,17 +29,17 @@ class CourseControllerTest {
     private static Course course= CourseFactory.createCourse("219384096", "ADT 3", "Application Dvelopment Theory","Ms Allie","Information Development Technology","room 1.3",new ArrayList<>(List.of("Neilyn", "Rodrigue", "Mxolisi", "Bavuyise", "Anne")));
 
     @Autowired
-    private TestRestTemplate restTemplate;
+    public TestRestTemplate restTemplate;
     private final String baseURL = "http://localhost:8080/course";
     @Test
     @Order(1)
     void create() {
         String url = baseURL + "/create";
         ResponseEntity<Course> postResponse = restTemplate.postForEntity(url, course,Course.class);
-        assertNotNull(postResponse);
+        assertNotNull(postResponse);  // Check if postResponse is not null
         assertNotNull(postResponse.getBody());
-        Course savedCourse= postResponse.getBody();
-        assertEquals(course.getCourse_code(), savedCourse.getCourse_code());
+        Course savedCourse= postResponse.getBody(); // Compare course.getCourse_code() with savedCourse.getCourse_code()
+       assertEquals(course.getCourse_code(), savedCourse.getCourse_code());
         System.out.println("Saved course:"+savedCourse);
 
         }

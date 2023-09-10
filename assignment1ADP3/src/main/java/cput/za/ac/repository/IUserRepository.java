@@ -8,10 +8,12 @@ package cput.za.ac.repository;
 
 import cput.za.ac.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Set;
 
+@Repository
 public interface IUserRepository extends JpaRepository<User, String> {
     //create, read, update, delete
    // public Set<User> getAll();

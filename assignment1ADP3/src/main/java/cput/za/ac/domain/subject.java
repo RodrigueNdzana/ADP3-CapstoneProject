@@ -1,7 +1,14 @@
 package cput.za.ac.domain;
 
+import jakarta.persistence.*;
+
+@Entity
 public class subject {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "subject code",length = 255)
     private final String subject_code;
+    @Column(name = "subject name",length = 255)
     private final String subject_name;
 
     public static class Builder {

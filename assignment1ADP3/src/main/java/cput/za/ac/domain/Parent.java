@@ -1,12 +1,23 @@
 package cput.za.ac.domain;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Parent {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "parent id",length = 255)
     private final int parent_id;
+    @Column(name="parent name", length = 255)
     private final String parent_name;
+    @Column(name="parent number", length = 255)
     private final String phone_number;
+    @Column(name="parent address", length = 255)
     private String Address;
+    @Column(name="parent email", length = 255)
     private String email;
-    private int number;
+//    @Column(name=" number", length = 255)
+//    private int number;
 
     public static class Builder {
         private int parent_id;

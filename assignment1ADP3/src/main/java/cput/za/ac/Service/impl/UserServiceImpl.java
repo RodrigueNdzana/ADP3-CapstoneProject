@@ -2,7 +2,7 @@ package cput.za.ac.Service.impl;
 /*UserServiceImpl.Java
  Author: Bavuyise Mpila(216061067)
  Date September 2023
-*/
+
 
 import cput.za.ac.Service.Interface.IUserService;
 import cput.za.ac.domain.Course;
@@ -17,7 +17,7 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements IUserService {
-    private UserServiceImpl service;
+    //private UserServiceImpl service;
     private IUserRepository repository;
     @Autowired
     private UserServiceImpl(IUserRepository repository){
@@ -57,4 +57,6 @@ public class UserServiceImpl implements IUserService {
 
 
 }
+
+ */
 

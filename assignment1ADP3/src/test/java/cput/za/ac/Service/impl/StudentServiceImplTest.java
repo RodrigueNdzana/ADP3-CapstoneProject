@@ -2,15 +2,12 @@ package cput.za.ac.Service.impl;
 /*StudentServiceImplTest.Java
  Author: Bavuyise Mpila(216061067)
  Date September 2023
-*/
+ */
 import cput.za.ac.domain.Student;
 
 import cput.za.ac.factory.StudentFactory;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -18,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
-@SpringBootTest
 
 class StudentServiceImplTest {
     @Autowired
@@ -28,21 +24,24 @@ class StudentServiceImplTest {
 
 
     @Test
-    void a_create() {
+    @Order(1)
+    void create() {
         Student created = service.create(student);
         assertEquals(student.getStudentNum(), created.getStudentNum());
         System.out.println("Created: " + created);
     }
 
     @Test
-    void b_read() {
+    @Order(2)
+    void read() {
         Student read = service.read(student.getStudentNum());
         assertNotNull(read);
         System.out.println("Read: " + read);
     }
 
     @Test
-    void c_update() {
+    @Order(3)
+    void update() {
         Student newStudent = new Student.Builder().copy(student).setName("Asekho").build();
         Student updated = service.update(newStudent);
         assertEquals(newStudent.getName(), updated.getName());
@@ -57,6 +56,7 @@ class StudentServiceImplTest {
     }
 
     @Test
+    @Order(4)
     void e_getAll() {
         System.out.println("Get all: ");
         System.out.println(service.getAll());

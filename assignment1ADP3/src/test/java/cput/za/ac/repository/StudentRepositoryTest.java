@@ -5,8 +5,9 @@
  Date 07 April 2023
 */
 
-/*import cput.za.ac.domain.Student;
+import cput.za.ac.domain.Student;
 import cput.za.ac.factory.StudentFactory;
+import cput.za.ac.repository.StudentRepository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -53,4 +54,4 @@ class StudentRepositoryTest {
         System.out.println("Show all:");
         System.out.println(repository.getAll());
     }
-}*/
+}

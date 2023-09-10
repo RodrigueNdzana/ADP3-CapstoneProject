@@ -1,7 +1,6 @@
 package cput.za.ac.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,21 +12,42 @@ import java.util.Objects;
      Date: 07 April 2023
 */
 @Entity
+@Table(name = "Course")
 public class Course{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "course_code", length = 255)
     private String course_code;
 
+    @Column(name = "Student_Id", length = 255)
     private String student_Id;
+    @Column(name = "Subject Code", length = 255)
     private String subject_Code;
+    @Column(name = "Course Name", length = 255)
     private String course_Name;
+    @Column(name = "Educator")
     private String educator;
+    @Column(name = "department", length = 255)
     private String department;
+    @Column(name = "class name", length = 255)
     private String className;
+    @Column(name = "enrolled Student")
     private List<String> enrolledStudents;
 
     private Course(){
 
     }
+
+    public Course(String student_Id, String subject_Code, String course_Name, String educator, String department, String className, List<String> enrolledStudents) {
+        this.student_Id = student_Id;
+        this.subject_Code = subject_Code;
+        this.course_Name = course_Name;
+        this.educator = educator;
+        this.department = department;
+        this.className = className;
+        this.enrolledStudents = enrolledStudents;
+    }
+
     private Course(Builder builder){
         this.course_code = builder.course_code;
         this.student_Id = builder.student_Id;
